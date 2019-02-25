@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opsa-mef>
+  <define-fault-tree name="KafkaUptime2Brokers">
+    <define-gate name="Broker1">
+      <label>Broker Failure</label>
+      <or>
+        <event name="Disk"/>
+        <event name="System"/>
+        <event name="OS"/>
+        <event name="Zookeeper"/>
+      </or>
+    </define-gate>
+    <define-gate name="Broker2">
+      <label>Broker Failure</label>
+      <or>
+        <event name="Zookeeper"/>
+        <event name="Disk"/>
+        <event name="System"/>
+        <event name="OS"/>
+      </or>
+    </define-gate>
+    <define-gate name="Zookeeper">
+      <label>Zookeeper Cluster Failure</label>
+      <and>
+        <event name="ZK1"/>
+        <event name="ZK2"/>
+        <event name="ZK3"/>
+      </and>
+    </define-gate>
+    <define-gate name="ISR1">
+      <label>Broker write failure</label>
+      <and>
+        <event name="Broker1"/>
+        <event name="Broker2"/>
+      </and>
+    </define-gate>
+    <define-gate name="Broker3">
+      <label>Broker Failure</label>
+      <or>
+        <event name="Disk"/>
+        <event name="System"/>
+        <event name="OS"/>
+        <event name="Zookeeper"/>
+      </or>
+    </define-gate>
+    <define-gate name="ZK2">
+      <label>Zookeeper failure</label>
+      <or>
+        <event name="SSD"/>
+        <event name="System"/>
+        <event name="OS"/>
+      </or>
+    </define-gate>
+    <define-gate name="ZK1">
+      <label>Zookeeper failure</label>
+      <or>
+        <event name="SSD"/>
+        <event name="System"/>
+        <event name="OS"/>
+      </or>
+    </define-gate>
+    <define-gate name="UptimeWrite">
+      <or>
+        <event name="Network"/>
+        <event name="ISR1"/>
+      </or>
+    </define-gate>
+    <define-gate name="ZK3">
+      <label>Zookeeper Failure</label>
+      <or>
+        <event name="SSD"/>
+        <event name="System"/>
+        <event name="OS"/>
+      </or>
+    </define-gate>
+  </define-fault-tree>
+  <model-data>
+    <define-basic-event name="Produce">
+      <label>Produce/Consume Message Failure</label>
+      <float value="1"/>
+    </define-basic-event>
+    <define-basic-event name="Network">
+      <label>Network partition</label>
+      <float value="0.2"/>
+    </define-basic-event>
+    <define-basic-event name="Disk">
+      <label>Disk Fails</label>
+      <float value="0.04"/>
+    </define-basic-event>
+    <define-basic-event name="System">
+      <label>Other HW failure</label>
+      <float value="0.01"/>
+    </define-basic-event>
+    <define-basic-event name="OS">
+      <label>OS Faults</label>
+      <float value="0.1"/>
+    </define-basic-event>
+    <define-basic-event name="SSD">
+      <label>Solid State Disk Failure</label>
+      <float value="0.002"/>
+    </define-basic-event>
+  </model-data>
+</opsa-mef>
