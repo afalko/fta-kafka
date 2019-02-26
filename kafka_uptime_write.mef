@@ -1,30 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <opsa-mef>
   <define-fault-tree name="KafkaUptimeISR1">
+    <define-gate name="Broker3">
+      <label>Broker Failure</label>
+      <or>
+        <event name="RotationalDiskHost"/>
+        <event name="Zookeeper"/>
+      </or>
+    </define-gate>
     <define-gate name="ISR1">
       <label>Broker write failure</label>
       <and>
         <event name="Broker1"/>
         <event name="Broker2"/>
+        <event name="Broker3"/>
       </and>
     </define-gate>
     <define-gate name="Broker1">
       <label>Broker Failure</label>
       <or>
-        <event name="Disk"/>
-        <event name="System"/>
-        <event name="Network"/>
-        <event name="OS"/>
-        <event name="ZK1"/>
+        <event name="RotationalDiskHost"/>
+        <event name="Zookeeper"/>
       </or>
     </define-gate>
     <define-gate name="Broker2">
       <label>Broker Failure</label>
       <or>
-        <event name="Disk"/>
-        <event name="System"/>
-        <event name="Network"/>
-        <event name="OS"/>
+        <event name="RotationalDiskHost"/>
         <event name="Zookeeper"/>
       </or>
     </define-gate>
@@ -40,27 +42,43 @@
       <label>Zookeeper failure</label>
       <or>
         <event name="SSD"/>
-        <event name="System"/>
-        <event name="Network"/>
-        <event name="OS"/>
+        <event name="NonDiskFailure"/>
       </or>
     </define-gate>
     <define-gate name="ZK1">
       <label>Zookeeper failure</label>
       <or>
+        <event name="NonDiskFailure"/>
         <event name="SSD"/>
-        <event name="System"/>
-        <event name="Network"/>
-        <event name="OS"/>
+      </or>
+    </define-gate>
+    <define-gate name="RotationalDiskHost">
+      <label>Host with rotational disk failure</label>
+      <or>
+        <event name="Disk"/>
+        <event name="NonDiskFailure"/>
       </or>
     </define-gate>
     <define-gate name="ZK3">
       <label>Zookeeper Failure</label>
       <or>
         <event name="SSD"/>
-        <event name="System"/>
+        <event name="NonDiskFailure"/>
+      </or>
+    </define-gate>
+    <define-gate name="SSDHost">
+      <label>Host with SSD failure</label>
+      <or>
+        <event name="SSD"/>
+        <event name="NonDiskFailure"/>
+      </or>
+    </define-gate>
+    <define-gate name="NonDiskFailure">
+      <label>Non-disk failure</label>
+      <or>
         <event name="Network"/>
         <event name="OS"/>
+        <event name="System"/>
       </or>
     </define-gate>
   </define-fault-tree>
@@ -83,7 +101,7 @@
         <event name="Disk3"/>
       </and>
     </define-gate>
-  </define-fault-tree>	
+  </define-fault-tree>
   <define-fault-tree name="SingleBroker">
     <define-gate name="Write-Read">
       <label>Write or read to single broker</label>
