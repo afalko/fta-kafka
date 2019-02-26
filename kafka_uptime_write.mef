@@ -15,17 +15,17 @@
         <event name="System"/>
         <event name="Network"/>
         <event name="OS"/>
-        <event name="Zookeeper"/>
+        <event name="ZK1"/>
       </or>
     </define-gate>
     <define-gate name="Broker2">
       <label>Broker Failure</label>
       <or>
-        <event name="Zookeeper"/>
         <event name="Disk"/>
         <event name="System"/>
         <event name="Network"/>
         <event name="OS"/>
+        <event name="Zookeeper"/>
       </or>
     </define-gate>
     <define-gate name="Zookeeper">
@@ -59,6 +59,7 @@
       <or>
         <event name="SSD"/>
         <event name="System"/>
+        <event name="Network"/>
         <event name="OS"/>
       </or>
     </define-gate>
@@ -82,6 +83,44 @@
         <event name="Disk3"/>
       </and>
     </define-gate>
+  </define-fault-tree>	
+  <define-fault-tree name="SingleBroker">
+    <define-gate name="Write-Read">
+      <label>Write or read to single broker</label>
+      <or>
+        <event name="ZookeeperCluster"/>
+        <event name="Broker"/>
+      </or>
+    </define-gate>
+    <define-gate name="ZookeeperCluster">
+      <label>Standalone Zookeeper Failure</label>
+      <or>
+        <event name="SSD"/>
+        <event name="Network"/>
+        <event name="OS"/>
+        <event name="System"/>
+      </or>
+    </define-gate>
+  </define-fault-tree>
+  <define-fault-tree name="Broker-only">
+    <define-gate name="Broker">
+      <label>Broker failure</label>
+      <or>
+        <event name="Disk"/>
+        <event name="Network"/>
+        <event name="System"/>
+        <event name="OS"/>
+      </or>
+    </define-gate>
+  </define-fault-tree>
+  <define-fault-tree name="TwoBrokers">
+    <define-gate name="TwoBrokers">
+      <label>Replicated Write to brokers with ISR=1 failure</label>
+      <and>
+        <event name="Broker1"/>
+        <event name="Broker2"/>
+      </and>
+    </define-gate>
   </define-fault-tree>
   <model-data>
     <define-basic-event name="Network">
@@ -101,26 +140,20 @@
       <float value="0.01"/>
     </define-basic-event>
     <define-basic-event name="SSD">
-      <label>Solid State Disk Failure</label>
-      <float value="0.002"/>
+      <label>Solid State Disk failure</label>
+      <float value="0.008"/>
     </define-basic-event>
     <define-basic-event name="Disk1">
       <label>Disk failure</label>
-      <exponential>
-        <float value="0.04"/>
-      </exponential>
+      <float value="0.008"/>
     </define-basic-event>
     <define-basic-event name="Disk2">
       <label>Disk failure</label>
-      <exponential>
-        <float value="0.04"/>
-      </exponential>
+      <float value="0.008"/>
     </define-basic-event>
     <define-basic-event name="Disk3">
       <label>Disk failure</label>
-      <exponential>
-        <float value="0.04"/>
-      </exponential>
+      <float value="0.008"/>
     </define-basic-event>
   </model-data>
 </opsa-mef>
