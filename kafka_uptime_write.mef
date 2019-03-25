@@ -55,7 +55,7 @@
     <define-gate name="RotationalDiskHost">
       <label>Host with rotational disk failure</label>
       <or>
-        <event name="Disk"/>
+        <event name="RAID0"/>
         <event name="NonDiskFailure"/>
       </or>
     </define-gate>
@@ -84,7 +84,7 @@
   </define-fault-tree>
   <define-fault-tree name="RAID0">
     <define-gate name="RAID0">
-      <label>Write failure</label>
+      <label>Read/Write failure</label>
       <or>
         <event name="Disk1"/>
         <event name="Disk2"/>
@@ -140,6 +140,15 @@
       </and>
     </define-gate>
   </define-fault-tree>
+  <define-fault-tree name="Dataloss">
+    <define-gate name="Dataloss">
+      <label>Data is lost</label>
+      <and>
+        <event name="Broker1"/>
+        <event name="Broker2"/>
+      </and>
+    </define-gate>
+  </define-fault-tree>
   <model-data>
     <define-basic-event name="Network">
       <label>Network partition</label>
@@ -163,15 +172,21 @@
     </define-basic-event>
     <define-basic-event name="Disk1">
       <label>Disk failure</label>
-      <float value="0.008"/>
+      <exponential>
+        <float value="0.04"/>
+      </exponential>
     </define-basic-event>
     <define-basic-event name="Disk2">
       <label>Disk failure</label>
-      <float value="0.008"/>
+      <exponential>
+        <float value="0.04"/>
+      </exponential>
     </define-basic-event>
     <define-basic-event name="Disk3">
       <label>Disk failure</label>
-      <float value="0.008"/>
+      <exponential>
+        <float value="0.04"/>
+      </exponential>
     </define-basic-event>
   </model-data>
 </opsa-mef>
