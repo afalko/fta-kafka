@@ -1,7 +1,7 @@
 # Presentation
 
-On May 27, 2019 I gave the following presentation at SRECON: 
-[SRECON'19: Fault Tree Analysis Applied to Apache Kafka](https://www.usenix.org/conference/srecon19americas/presentation/falko)
+On March 27, 2019 I gave the following presentation at SRECON: 
+[Fault Tree Analysis Applied to Apache Kafka](https://www.usenix.org/conference/srecon19americas/presentation/falko)
 
 # References
 
