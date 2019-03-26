@@ -9,11 +9,11 @@ Fault Trees are exported as SVGs by [SCRAM-PRA](https://github.com/rakhimov/scra
 was used in this presentation. They are listed below in the order 
 in which they appeared. 
 
-![Raid 0](/raid0.svg)
+![Raid0](/raid0.svg)
 
-![Raid 1](/raid1.svg)
+![Raid1](/raid1.svg)
 
-![Raid 1, Two Disks](/raid1-2disk.svg)
+![Raid1, Two Disks](/raid1-2disk.svg)
 
 ![Two Brokers One Zookeeper](/2brokers1zk.svg)
 
