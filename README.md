@@ -13,6 +13,8 @@ in which they appeared.
 
 ![Raid 1](/raid1.svg)
 
+![Raid 1, Two Disks](/raid1-2disk.svg)
+
 ![Two Brokers One Zookeeper](/2brokers1zk.svg)
 
 ![Two Brokers One Zookeeper Refactored](/2brokers1zk-refactored.svg)
