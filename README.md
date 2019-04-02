@@ -2,6 +2,7 @@
 
 On March 27, 2019 I gave the following presentation at SRECON: 
 [Fault Tree Analysis Applied to Apache Kafka](https://www.usenix.org/conference/srecon19americas/presentation/falko)
+
 On April 2, 2019 I gave the following presentation at Kafka Summit NYC (see above link for slides): [Bulletproof Kafka with Fault Tree Analysis](https://kafka-summit.org/sessions/bulletproof-kafka-fault-tree-analysis/)
 
 # References
