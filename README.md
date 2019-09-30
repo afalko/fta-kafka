@@ -1,9 +1,11 @@
 # Presentation
 
-On March 27, 2019 I gave the following presentation at SRECON: 
-[Fault Tree Analysis Applied to Apache Kafka](https://www.usenix.org/conference/srecon19americas/presentation/falko)
+On October 4th, 2019 I will give this presentation as a keynote: [Fault Tree Analysis Applied to Apache Kafka](https://www.usenix.org/conference/srecon19emea/presentation/falko)
 
 On April 2, 2019 and May 13, 2019 I gave the following presentation at Kafka Summit NYC and London respectively (see above link for slides): [Bulletproof Kafka with Fault Tree Analysis](https://kafka-summit.org/sessions/bulletproof-kafka-fault-tree-analysis/)
+
+On March 27, 2019 I gave the following presentation at SRECON: 
+[Fault Tree Analysis Applied to Apache Kafka](https://www.usenix.org/conference/srecon19americas/presentation/falko)
 
 # References
 
