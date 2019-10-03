@@ -1,3 +1,8 @@
+##### Table of Contents  
+[Presentation Links](#presentation)  
+[References](#references)  
+[Fault Trees](#fault-trees)    
+
 # Presentation
 
 On October 4th, 2019 I gave this presentation as one of the closing plenary talks: [Fault Tree Analysis Applied to Apache Kafka](https://www.usenix.org/conference/srecon19emea/presentation/falko)
