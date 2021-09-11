@@ -17,7 +17,7 @@ On March 27, 2019 I gave the following presentation at SRECON:
 For your convenience here is a set of links to literature I mentioned 
 on the references slide: 
 
-OSS tool to draw and compute models: [SCRAM-PRA](github.com/rakhimov/scram)
+OSS tool to draw and compute models: [SCRAM-PRA](https://github.com/rakhimov/scram)
 
 [How Not to Go Boom: Lessons for SREs from Oil Refineries by Emil Stolarsky](https://www.usenix.org/conference/srecon18americas/presentation/stolarsky)
 
