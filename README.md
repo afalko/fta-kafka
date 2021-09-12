@@ -23,7 +23,7 @@ OSS tool to draw and compute models: [SCRAM-PRA](https://github.com/rakhimov/scr
 
 [Fault Tree Analysis - A History by Clifton A. Ericson II](https://web.archive.org/web/20110723124816/http://www.fault-tree.net/papers/ericson-fta-history.pdf)
 
-[Fault Tree Handbook with Aerospace Applications by Dr. Michael Stamatelatos and Mr. José Caraballo](https://elibrary.gsfc.nasa.gov/_assets/doclibBidder/tech_docs/25.%20NASA_Fault_Tree_Handbook_with_Aerospace_Applications%20-%20Copy.pdf)
+[Fault Tree Handbook with Aerospace Applications by Dr. Michael Stamatelatos and Mr. José Caraballo](http://www.mwftr.com/CS2/Fault%20Tree%20Handbook_NASA.pdf)
 
 [Failure Trends in a Large Disk Drive Population by Eduardo Pinheiro, Wolf-Dietrich Weber and Luiz Andre Barroso](https://static.googleusercontent.com/media/research.google.com/en//archive/disk_failures.pdf)
 
